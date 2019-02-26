@@ -14,11 +14,17 @@ function placeno(val){
 	}
 }
 
+function nijePlaceno(val){
+	if(val.classList.value.indexOf('neplaceno') !==-1){
+		return true;
+	}
+}
+
 var prvePlacene = Array.from(prveRate).filter(placeno);
 var drugePlacene = Array.from(drugeRate).filter(placeno);
 var trecePlacene = Array.from(treceRate).filter(placeno); 
-var potencijalneDruge = Array.from(drugeRate).filter(filterPrethodnoIzmirenih);
-var potencijalneTrece = Array.from(treceRate).filter(filterPrethodnoIzmirenih);
+var potencijalneDruge = Array.from(drugeRate).filter(nijePlaceno).filter(filterPrethodnoIzmirenih);
+var potencijalneTrece = Array.from(treceRate).filter(nijePlaceno).filter(filterPrethodnoIzmirenih);
 
 function saberi(ar) {
 	let zbir = 0;
